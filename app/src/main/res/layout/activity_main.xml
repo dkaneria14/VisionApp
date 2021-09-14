@@ -12,13 +12,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView2"
-       android:layout_marginLeft="30dp"
-        android:layout_marginTop="50dp"
-        android:text="clickMe"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="55dp"
+        android:text="Insert Img"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonConvertText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginTop="55dp"
+       android:layout_toRightOf="@+id/clickMe"
+    android:layout_marginLeft="80dp"
+        android:text="Convert text" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -28,6 +38,14 @@
 
         tools:srcCompat="@tools:sample/avatars" />
 
+          <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/textView1"
+                 android:layout_marginTop="60dp"
+                 android:text="TextView"
+                 android:layout_below="@+id/buttonConvertText"
+                 android:layout_centerHorizontal="true"/>
 
 
 
