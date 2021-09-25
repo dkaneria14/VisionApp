@@ -30,6 +30,14 @@
     android:layout_marginLeft="80dp"
         android:text="Convert text" />
 
+    <Button
+        android:id="@+id/changePage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change page"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
@@ -46,6 +54,14 @@
                  android:text="TextView"
                  android:layout_below="@+id/buttonConvertText"
                  android:layout_centerHorizontal="true"/>
+<TextView
+    android:id="@+id/dummyTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/changePage"
+    android:text="TextView"
+    android:layout_centerHorizontal="true" />
+
 
 
 

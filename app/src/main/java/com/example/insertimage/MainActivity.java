@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     Button buttonConvertText;
     TextView textView;
     ImageView imageView;
+    Button changePage;
+    public static final String EXTRA_TEXT = "com.example.insertimage.EXTRA_TEXT";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         Button clickMe = findViewById(R.id.clickMe);
         buttonConvertText = findViewById(R.id.buttonConvertText);
         textView = findViewById(R.id.textView1);
+        changePage  = findViewById(R.id.changePage);
+
+
         clickMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +50,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(Intent.createChooser(intent,"Pick an image"),1);
             }
         });
+
+        changePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
+    public void openActivity2(String convertText){
+        Intent intent = new Intent(this,MainActivity2.class);
+        intent.putExtra(EXTRA_TEXT,convertText);
+        startActivity(intent);
+    }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -88,13 +108,17 @@ public class MainActivity extends AppCompatActivity {
             //The detect method(pre defined from vision api, takes a frame object)
             SparseArray<TextBlock> arrayOfText = textRecognizer.detect(frame);
             StringBuilder sb = new StringBuilder();
+            String convertText = "";
             for(int i =0;i<arrayOfText.size();i++){
                 TextBlock tb = arrayOfText.get(i);
                 sb.append(tb.getValue());
                 sb.append("\n");
             }
 
-            textView.setText(sb);
+            convertText= sb.toString();
+            openActivity2(convertText);
+            textView.setText(convertText);
+
         }
     }
 
