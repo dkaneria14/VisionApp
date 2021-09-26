@@ -25,9 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView2"
+        android:layout_marginLeft="76dp"
         android:layout_marginTop="55dp"
-       android:layout_toRightOf="@+id/clickMe"
-    android:layout_marginLeft="80dp"
+        android:layout_marginRight="25dp"
+        android:layout_toRightOf="@+id/clickMe"
         android:text="Convert text" />
 
     <Button

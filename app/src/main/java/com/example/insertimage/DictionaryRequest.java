@@ -1,5 +1,12 @@
 package com.example.insertimage;
+
+import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -9,6 +16,15 @@ import javax.net.ssl.HttpsURLConnection;
 
 
 public class DictionaryRequest extends AsyncTask<String, Integer, String> {
+
+    Context c;
+    TextView tv;
+    public DictionaryRequest(Context c, TextView textView){
+        this.c =c;
+        this.tv = textView;
+    }
+
+
 
     @Override
     protected String doInBackground(String... params) {
@@ -45,7 +61,33 @@ public class DictionaryRequest extends AsyncTask<String, Integer, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
-        System.out.println(result);
+        try {
+            JSONObject js = new JSONObject(result);
+            JSONArray results = js.getJSONArray("results");
+            JSONObject jobj = results.getJSONObject(0);
+            JSONArray lexicalEntries = jobj.getJSONArray("lexicalEntries");
+            JSONObject objOfLexicalEntries = lexicalEntries.getJSONObject(0);
+            JSONArray entries = objOfLexicalEntries.getJSONArray("entries");
+            JSONObject objOfEntries = entries.getJSONObject(0);
+            JSONArray senses = objOfEntries.getJSONArray("senses");
+            JSONObject objOfSenses = senses.getJSONObject(0);
+            JSONArray definitions = objOfSenses.getJSONArray("definitions");
+
+            String theRealDefinition;
+             theRealDefinition = definitions.getString(0);
+
+                tv.setText(theRealDefinition);
+
+
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        /*System.out.println(theRealDefinition);*/
+
+        MainActivity2 m2 = new MainActivity2();
+      //  m2.settingTextView(theRealDefinition);
     }
 }
 
