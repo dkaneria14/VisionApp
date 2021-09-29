@@ -7,4 +7,7 @@ i would just take a pic of the word and this app would convert it to text and te
 
 //Current progress:
 I am able to pick an image from the phone gallery and able to convert it to text.
-So the next step will be incorporating the dictionary API.
+I have incorporated dictionary API now on my app! Now i am able to get the definition of that converted text!
+
+Next Step: 
+Learning Machine Learning to help identify texts when we switch the camera on. So instead of picking an image from the gallery, i want to select the text through the camera of my phone and pop up a definition there
